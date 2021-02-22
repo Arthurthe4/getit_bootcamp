@@ -17,13 +17,13 @@ body {
 #justPadding {
   padding-top: 0px;
 }
-#displayScreen {
+.screen {
   width: 400px;
   height: 300px;
   border: 3px solid #000;
   margin-left: auto;
   margin-right: auto;
-  background-color: #fff;
+  background-color: lightgray;
   padding: 0;
 }
 /* Buttons Left */
@@ -51,6 +51,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 5px;
+  font-family: "Press Start 2P", cursive;
 }
 /* Buttons Right */
 .circle {
@@ -62,34 +63,46 @@ body {
 /*Inner Screen grid for text Healtbar and img*/
 .gameContainer {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto;
   grid-template-rows: auto auto;
+}
+.menuContainer {
+  display: grid;
+  grid-template-columns: 95px 95px;
+  grid-row: auto auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 5px;
+  font-size: 10px;
+  padding-left: 13px;
+}
+.menuSelected {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 90%;
 }
 
 .grid-bottom {
   padding-top: 98px;
 }
 
-#HealtBarTop {
+#healthbarE {
   width: 225px;
-  border: 1px solid #000;
   height: 50px;
 }
-#ImagePokemon {
+.ImagePokemon {
   width: 175px;
   height: 99px;
-  border: 1px solid #000;
 }
 #AttackBottom {
-  width: 225px;
+  width: 220px;
   height: 50px;
   border: 1px solid #000;
   margin: 0;
 }
 
-#HealtBarBottom {
-  width: 225px;
-  border: 1px solid #000;
+#lol {
+  width: 220px;
   height: 25px;
 }
 #padding {
@@ -99,4 +112,104 @@ body {
 h2 {
   text-align: center;
   color: #fff;
+}
+.img {
+  width: 175px;
+  height: 99px;
+}
+
+#arrowDown {
+  width: 15px;
+  height: 15px;
+}
+
+#arrowRight {
+  width: 15px;
+  height: 15px;
+  transform: rotate(270deg);
+}
+
+#arrowLeft {
+  width: 15px;
+  height: 15px;
+  transform: rotate(90deg);
+}
+
+#arrowUp {
+  width: 15px;
+  height: 15px;
+  transform: rotate(180deg);
+}
+
+button {
+  text-decoration: none;
+  background-color: #fff;
+}
+button:focus {
+  border: none;
+  outline: none;
+}
+.healtBarStyleOuter {
+  border: 2px solid #000;
+  border-radius: 50px;
+  height: 20px;
+  width: 100%;
+  background-color: darkgrey;
+}
+.healtBarStyleInner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 97%;
+  border: 2px solid #000;
+  border-radius: 50px;
+  height: 8px;
+  background-color: green;
+  margin: 4px;
+  font-size: 10px;
+}
+ul {
+  list-style-type: none;
+}
+.arrowMenuImage {
+  width: 15px;
+  height: 15px;
+}
+
+#imageCircle {
+  border-radius: 50%;
+  width: 30%;
+}
+#imageCircle img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+p {
+  padding-top: 40px;
+}
+.grid-containerIntro {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-top: 50px;
+}
+.grid-itemIntro {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ContainerIntro {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.ContainerIntro #imageCircle {
+  margin-left: 25px;
+}
+h1 {
+  text-align: center;
+}
+#gameScreen {
+  background-color: #fff;
+}
+.dispnone {
+  display: none;
 }
