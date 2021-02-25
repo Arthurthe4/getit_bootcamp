@@ -14,7 +14,7 @@
 <script>
 import LandingPageContent from './layout/LandingPageContent.vue';
 
-// Rout for Login with Twitch
+// Rout for Login with Twitch, YouTube, FaceBook
 import Login from './Login.vue';
 const router = new VueRouter({
   routes: [
