@@ -1,8 +1,10 @@
 var model = {
+    qurrentSelectedRes: '',
+    selectedIngridens: ['hei'],
     recipes: [
         { 
             id: 1001, 
-            name: 'Mangosorbet',
+            names: 'Mangosorbet',
             difficulty: "Enkel", 
             ingredient: [
                 "450g mangopuré", 
@@ -14,7 +16,7 @@ var model = {
         },
         {
             id: 1002,
-            name: 'Carnitas',
+            names: 'Carnitas',
             difficulty: "Middels", 
             ingredient: [
                 "1kg nakkekoteletter av svin",
@@ -33,7 +35,121 @@ var model = {
         },
         { 
             id: 1003, 
-            name: 'Kvikklunsjkake',
+            names: 'Kvikklunsjkake',
+            difficulty: "Enkel", 
+            ingredient: [
+                "3 stk egg", 
+                "150g sukker", 
+                "90g hvetemel", 
+                "2ss kakaopulver", 
+                "1ts vaniljesukker",
+                "1.5 ts bakepulver",
+                "75g smør",
+                "50g mørk kokesjokolade",
+                "300g lys kokesjokolade",
+                "200g smør",
+                "200g melis",
+                "5stk Kvikk Lunsj",
+            ],
+        },
+        { 
+            id: 1004, 
+            names: 'RØSTI',
+            difficulty: "Enkel", 
+            ingredient: [
+                "3 stk egg", 
+                "150g sukker", 
+                "90g hvetemel", 
+                "2ss kakaopulver", 
+                "1ts vaniljesukker",
+                "1.5 ts bakepulver",
+                "75g smør",
+                "50g mørk kokesjokolade",
+                "300g lys kokesjokolade",
+                "200g smør",
+                "200g melis",
+                "5stk Kvikk Lunsj",
+            ],
+        },
+        { 
+            id: 1004, 
+            names: 'Sputnuk',
+            difficulty: "Enkel", 
+            ingredient: [
+                "3 stk egg", 
+                "150g sukker", 
+                "90g hvetemel", 
+                "2ss kakaopulver", 
+                "1ts vaniljesukker",
+                "1.5 ts bakepulver",
+                "75g smør",
+                "50g mørk kokesjokolade",
+                "300g lys kokesjokolade",
+                "200g smør",
+                "200g melis",
+                "5stk Kvikk Lunsj",
+            ],
+        },
+        { 
+            id: 1004, 
+            names: 'FISKEBOLLER I KARRISAUS',
+            difficulty: "Enkel", 
+            ingredient: [
+                "3 stk egg", 
+                "150g sukker", 
+                "90g hvetemel", 
+                "2ss kakaopulver", 
+                "1ts vaniljesukker",
+                "1.5 ts bakepulver",
+                "75g smør",
+                "50g mørk kokesjokolade",
+                "300g lys kokesjokolade",
+                "200g smør",
+                "200g melis",
+                "5stk Kvikk Lunsj",
+            ],
+        },
+        { 
+            id: 1004, 
+            names: 'GUACAMOLE MED ERTER',
+            difficulty: "Enkel", 
+            ingredient: [
+                "3 stk egg", 
+                "150g sukker", 
+                "90g hvetemel", 
+                "2ss kakaopulver", 
+                "1ts vaniljesukker",
+                "1.5 ts bakepulver",
+                "75g smør",
+                "50g mørk kokesjokolade",
+                "300g lys kokesjokolade",
+                "200g smør",
+                "200g melis",
+                "5stk Kvikk Lunsj",
+            ],
+        },
+        { 
+            id: 1004, 
+            names: 'PICO DE GALLO',
+            difficulty: "Enkel", 
+            ingredient: [
+                "3 stk egg", 
+                "150g sukker", 
+                "90g hvetemel", 
+                "2ss kakaopulver", 
+                "1ts vaniljesukker",
+                "1.5 ts bakepulver",
+                "75g smør",
+                "50g mørk kokesjokolade",
+                "300g lys kokesjokolade",
+                "200g smør",
+                "200g melis",
+                "5stk Kvikk Lunsj",
+            ],
+        },
+        { 
+            id: 1004, 
+            names: 'FROKOSTPANNEKAKER',
             difficulty: "Enkel", 
             ingredient: [
                 "3 stk egg", 
@@ -58,7 +174,9 @@ function updateView() {
     var recipesHtml = createRecipesHtml();
     document.getElementById('app').innerHTML = `
         <h2>Recipes</h2>
-        ${recipesHtml}
+        <div class="grid-container">
+            ${recipesHtml}
+        </div>
         
     `;  
 }
@@ -66,18 +184,38 @@ function updateView() {
 function createRecipesHtml() {
     var html = '';
     for(var names of model.recipes) {
-        html += `<li onclick="ingridienser('${names.name}')">${names.name}</li>`
+        if(model.qurrentSelectedRes == names.names) {
+            html += 
+            `<div >
+                <div class="grid-item" onclick="ingridienser
+                    ('${names.ingredient}','${names.names}')
+                    ">${names.names}
+                </div> 
+                <div class="grid-item">
+                    ${model.selectedIngridens}
+                </div>
+            </div>`
+        }
+        else {
+            html += 
+            `<div class="grid-container">
+                <div class="grid-item recipeCard" onclick="ingridienser
+                    ('${names.ingredient}','${names.names}')
+                    ">${names.names}
+                </div>
+            </div>`        
+        }
     }
     return html
 }
 
 // Controller
-function ingridienser() {
-    var ingredientsHtml = '';
-    for(var ingredients of model.recipes) {
-        ingredientsHtml += `<li>${ingredients.ingredient}</li>`
+function ingridienser(ingredient, Rname) {
+    model.selectedIngridens = ingredient
+    if(model.qurrentSelectedRes == ''){
+        model.qurrentSelectedRes = Rname;
+    } else {
+        model.qurrentSelectedRes = '';
     }
-    //return ingredientsHtml
-    // ${ingredients}
     updateView();
 }
