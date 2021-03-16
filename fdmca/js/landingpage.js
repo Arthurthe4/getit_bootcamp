@@ -1,4 +1,3 @@
-
 updateView()
 function updateView() {
     var html = ``;
@@ -11,8 +10,7 @@ function updateView() {
             </h4>
         </div>
     </div>
-    
-    <p>YOU decide what music YOU listen to </p>
+    <p>YOU decide what music <br/> YOU listen to </p>
     `
     document.getElementById('app').innerHTML = html
 }
