@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.14.1.css">
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.1.js"></script>
+    <script src="../JS/controller.js"></script>
+    <script>
+        let model = {
+          currentPage: '', 
+          currentTrackSong: '',
+          songList: [
+      {
+         songName: "test1",
+         url: "https://open.spotify.com/track/1Knctxx9vGZxpZfF66BIEa?si=D1Rjyl7mTTSG--BtJxuVPw",
+      },
+      {
+         songName: "test2",
+         url: "https://open.spotify.com/track/0s3nnoMeVWz3989MkNQiRf?si=6b9fnbC0T7-Yp-Al94NOjA",
+      },
+      {
+         songName: "test3",
+         url: "https://open.spotify.com/track/0XySogm94T51XF5F2jumXm?si=95zS306LQDi8JK4tvpl4Fw",
+      },
+      {
+         songName: "test4",
+         url: "https://open.spotify.com/track/4mHgYpuGHu99Mw69E83CP2?si=vQ3gCMr7S86ctJlLJIECqw",
+      },
+      {
+         songName: "test5",
+         url: "https://open.spotify.com/track/2bSk87AVkCIIC3Bcligq1z?si=KY7Uoz0sTKy-4O9uY1xGyg",
+      },
+   ]
+        }
+        function updateView(){}
+
+        QUnit.test('check view', function(assert) {
+          selectView('profielPage');
+          var actual = model.currentPage;
+          var expected = "profielPage";
+          assert.equal(actual, expected);
+        });
+        
+        QUnit.test('feil page', function(assert) {
+          var actual = errorCheck("");
+          var expected = false;
+          assert.equal(actual, expected);
+        });
+
+        // check if song is playing
+        QUnit.test('check song is playing', function(assert) {
+          selectedSong("test1")
+          var actual = model.currentTrackSong;
+          var expected = "test1";
+          assert.equal(actual, expected);
+        });
+
+        QUnit.test('unable to play song', function(assert) {
+          var actual = selectedSong("sadsadsafsaffsafsafsa");
+          var expected = false;
+          assert.equal(actual, expected);
+        });
+    </script>
+</body>
+</html>
