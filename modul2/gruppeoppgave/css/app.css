@@ -1,0 +1,495 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  height: auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 220px 1260px 400px;
+}
+
+/*--------------------------- Navbar ---------------------------*/
+.navBar {
+  background-color: #ff8300;
+  width: 250px;
+  height: 100% !important;
+  color: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  text-align: center;
+  padding-top: 23px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  margin: 0;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.loginButton {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.seHeleÅret {
+  cursor: pointer;
+}
+
+.navBarYearContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 200px;
+  margin: auto;
+}
+
+.navBarYearContainer div {
+  /* Får samme style som h2 har */
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.58em;
+  margin-block-end: 0.58em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navBarMonth {
+  display: block;
+  padding: 15px 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.colorSelected {
+  background-color: rgb(214, 103, 0);
+}
+
+/*--------------------------- Calender (dates) ---------------------------*/
+.calender {
+  width: 1100px;
+  padding: 0 50px;
+  height: 880px;
+  margin-left: 45px;
+  margin-top: 30px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border: solid rgb(200, 200, 200) 2px;
+  border-radius: 25px;
+}
+
+.weeksContainer {
+  display: grid;
+  grid-template-columns: 135px;
+  grid-template-rows: 97px;
+  width: 150px;
+  height: 880px;
+  float: left;
+  justify-items: center;
+  align-items: center;
+  color: rgb(121, 121, 121);
+  font-size: 1.1rem;
+}
+
+.weeks-grid-item {
+  padding: 30px;
+  position: relative;
+  bottom: 10px;
+}
+
+.grid-date-container {
+  display: grid;
+  grid-template-columns: repeat(7, 135px);
+  grid-template-rows: 97px;
+  justify-items: center;
+  align-items: center;
+  width: 950px;
+  height: 880px;
+  font-size: 1.1rem;
+}
+
+.dates-grid-item {
+  padding: 25px 30px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+}
+
+.sundays {
+  color: rgb(255, 0, 0);
+}
+.special-event {
+  color: rgb(0, 47, 255);
+}
+.holidays {
+  color: rgb(255, 0, 0);
+}
+.special-event.holidays {
+  color: rgb(234, 0, 255);
+}
+
+.selectedDate {
+  display: block;
+  background-color: #ff8300;
+  border-radius: 10px;
+  width: auto;
+  height: auto;
+  margin: 0 0 20px 0;
+  text-align: center;
+  line-height: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.appointment-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+  position: relative;
+  top: 0px;
+  width: 100px;
+  height: 18px;
+}
+
+.appointment--color {
+  display: block;
+  /* background-color: blue; */
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  margin: 2.5px;
+  border: 0.5px solid rgba(0, 0, 0, 0.5);
+}
+
+/*--------------------------- Events ---------------------------*/
+.hendelser {
+  position: absolute;
+  top: 30px;
+  width: 400px;
+  height: 55em;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border: solid rgb(200, 200, 200) 2px;
+  border-radius: 25px;
+}
+.hendelser h1 {
+  width: 365px;
+  text-align: center;
+  margin: 25px auto;
+  /* font-size: 1.8rem; */
+}
+
+.hendelseBox {
+  width: 375px;
+  height: 650px;
+  margin: auto 0 auto 20px;
+  overflow-x: hidden;
+}
+
+.hendelse {
+  padding: 15px;
+  width: auto;
+  height: auto;
+  margin: auto 15px 15px 0;
+  border: solid rgb(200, 200, 200) 1px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.appointment__holiday {
+  display: block;
+  font-size: 1.5em;
+  margin: 5px 30px;
+  font-weight: bold;
+}
+
+.appointment__header-container {
+  display: grid;
+  grid-template-columns: 30px auto 30px;
+}
+
+/* hendelse farge */
+.appointment__color {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.appointment__color-picker {
+  width: 365px;
+  padding: 15px;
+  height: 250px;
+  border: solid rgb(200, 200, 200) 2px;
+  border-radius: 5%;
+  display: grid;
+  grid-template-columns: 91.25px 91.25px 91.25px 91.25px;
+  grid-template-rows: 83px 83px 83px;
+  justify-items: center;
+  align-items: center;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 80px;
+  z-index: 99;
+  background-color: white;
+}
+
+.color-picker {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.color-picker__selectedColor {
+  border: rgb(0, 0, 0) solid 3px;
+}
+
+.appointment__edit-button {
+  display: block;
+  position: relative;
+  margin: 5px 0px;
+  position: relative;
+  right: 0px;
+  cursor: pointer;
+}
+
+.appointment__date {
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+
+.header {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0px 0px 10px 10px;
+  width: 220px;
+}
+
+.hendelse p {
+  margin: 0 0 0 40px;
+}
+
+.nyHendelse {
+  position: absolute;
+  top: 815px;
+  left: 10px;
+  width: 380px;
+  height: 55px;
+  background-color: #ff8300;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 2.3;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+}
+
+.nySpesiellHendelse {
+  position: absolute;
+  top: 750px;
+  left: 10px;
+  width: 380px;
+  height: 55px;
+  background-color: #ff8300;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 2.3;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+}
+
+.appointment__back-button {
+  position: absolute;
+  top: 815px;
+  left: 10px;
+  width: 120px;
+  height: 55px;
+  background-color: #ff8300;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 2.3;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+}
+
+.appointment__add-button {
+  position: absolute;
+  top: 815px;
+  left: 140px;
+  width: 250px;
+  height: 55px;
+  background-color: #ff8300;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 2.3;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+}
+
+.appointment__delete-button {
+  margin: 10px 0px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: rgb(255, 59, 59);
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+
+.widthCard {
+  width: 400px;
+}
+
+/*--------------------------- Calender (entire year) ---------------------------*/
+#entireYear {
+  width: 1600px;
+  height: 55em;
+  margin-left: 45px;
+  margin-top: 30px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border: solid rgb(200, 200, 200) 2px;
+  border-radius: 25px;
+}
+
+#years {
+  width: 1400px;
+  padding: 40px 30px;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+#years button {
+  cursor: pointer;
+}
+
+.entireYear__currentYear {
+  background-color: #ff8300;
+  padding: 15px 30px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.entireYear__years {
+  cursor: pointer;
+}
+
+.month-container {
+  height: 700px;
+  width: initial;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  justify-items: center;
+  padding: 0 100px;
+}
+
+.grid-item-month {
+  width: 310px;
+  height: 214px;
+  text-align: center;
+  background-color: lightgray;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.daysInMonthBox {
+  width: 290px;
+  height: 170px;
+  margin: auto;
+  background-color: white;
+  border-radius: 5%;
+}
+
+.month-name {
+  padding: 5px 0;
+  font-size: 1.2rem;
+}
+.grid-item-month-days {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  justify-items: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.grid-item-year-days {
+  padding: 5px 10px;
+}
+
+#headerText {
+  height: 40px;
+  width: 350px;
+  border-radius: 10px;
+  border: 1px solid rgb(121, 121, 121);
+  margin-left: 20px;
+}
+#paragraphText {
+  height: 75px;
+  width: 350px;
+  border-radius: 10px;
+  border: 1px solid rgb(121, 121, 121);
+  margin-left: 20px;
+}
+#timeWhenStart {
+  height: 40px;
+  width: 350px;
+  border-radius: 10px;
+  border: 1px solid rgb(121, 121, 121);
+  margin-left: 20px;
+}
+#changeBox {
+  width: 400px;
+  margin: 0px;
+  padding-left: 0px;
+}
+#alignTextInEvent {
+  margin-left: 20px;
+}
+.gridContainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: center;
+  width: 350px;
+}
+.gridItem {
+  font-size: 35px;
+  margin: 20px;
+  font-weight: bold;
+  width: auto;
+}
+#circleColorChooser {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: inline-block;
+  border: solid 1px black;
+}
+
+#editEventButton {
+  font-size: 12px;
+  text-decoration: underline;
+  text-align: end;
+}
+textarea {
+  font-size: 13px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
